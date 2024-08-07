@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo "-----------------------------------------"
+echo "Starting to Download and Compile QE 7.3.1"
+echo "-----------------------------------------"
+
+mkdir -p ~/.local/src/QE/
+
+sudo apt update
+sudo apt install git
+
+# Dependencies
+sudo apt install --no-install-recommends \
+    autoconf \
+    build-essential \
+    ca-certificates \
+    gfortran \
+    libblas3 \
+    libc6 \
+    libfftw3-dev \
+    libgcc-s1 \
+    liblapack-dev \
+    wget
+
+# For parallel processing
+sudo apt install --no-install-recommends \
+    libopenmpi-dev \
+    libscalapack-openmpi-dev \
+    libelpa19
+
+
+# Download QE 7.3.1 src
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.3.1/q-e-qe-7.3.1.tar.gz -P ~/Downloads
+
+# Extract Tar Files
+tar -zxvf ~/Downloads/q-e-qe-7.3.1.tar.gz -C ~/.local/src/QE/
+
+cd ~/.local/src/QE/
+mv q-e-qe-7.3.1 7.3.1
+cd 7.3.1/
+
+# Compile
+./configure
+make -j2 all
+
+# Message
+echo "---------------------------------"
+echo "Downloaded and Compiled QE 7.3.1"
+echo "The compiled binaries are located in ~/.local/src/QE/7.3.1/bin/"
+echo "Make sure to add it to your path!"
+echo "---------------------------------"

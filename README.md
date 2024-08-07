@@ -1,6 +1,6 @@
-## Scripts to compile and install (possibly) the latest version of QE for parallel computing from source
+## Scripts to compile and install (possibly) the latest version of QuantumEspresso for parallel computing from source
 
-The version of QE which this script installs is 7.3.1!
+The version of QuantumEspresso which this script installs is 7.3.1!
 
 > [!IMPORTANT]  
 > This script works only for Ubuntu 24.04 LTS and distros which is based on it!

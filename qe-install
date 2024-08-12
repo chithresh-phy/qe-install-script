@@ -1,0 +1,125 @@
+#!/bin/python3
+
+import os
+
+qe_versions = ['7.3.1', '7.2']
+
+print("This Script Works Only with a Few Linux Distros:\n")
+print("1. Ubuntu 24.04 LTS (Recommended) and Distros based on it")
+print("2. Debian 12 (Recommended) and Distros based on it")
+print("3. Ubuntu 22.04 LTS and Distros based on it")
+print("4. Ubuntu 20.04 LTS and Distros based on it\n")
+
+distro = int(input("Enter your Distro (Eg. 1 for Ubuntu 24.04 LTS): "))
+print("")
+
+if distro == 1:
+	libelpa_version = 'libelpa19'
+elif distro == 2:
+	libelpa_version = 'libelpa19'
+elif distro == 3:
+	libelpa_version = 'libelpa17'
+elif distro == 4:
+	libelpa_version = 'libelpa4'
+else:
+	print("Error! Unrecognised Input!")
+	exit()	
+
+print("Available QE Versions:")
+print(qe_versions)
+print("")
+
+qe_version = input("Enter any Available QE version to Compile and Install (Eg. 7.3.1): ")
+print("")
+
+if qe_version in qe_versions:
+	print(f"The Chosen QE version is '{qe_version}'\n")
+else:
+	print("Error! Unrecognised Input!")
+	exit()
+
+# Checking/Creating QE src Dir
+print("Checking & Creating QE src Directory!\n")
+os.system('mkdir -p ~/.local/src/QE/')
+
+# Check if the Verison already exists
+pr_vr_cmd = f"ls ~/.local/src/QE/ | grep {qe_version}"
+pr_vr = os.popen(pr_vr_cmd).read()
+pr_vr = pr_vr.strip()
+
+if pr_vr == qe_version:
+	print(f"Manual Intervention Needed! {qe_version} version of QE Already exists in ~/.local/src/QE/")
+	exit()
+else:
+	pass
+
+# Determining the Number of CPU's in the System
+cpu = os.popen("grep -c ^processor /proc/cpuinfo").read()
+cpu = cpu.strip()
+print(f"{cpu} CPU's Available!\n")
+
+cpu_alloc = int(input(f"Enter No of CPU's to allocate for Building (<= {cpu}): "))
+if cpu_alloc <= int(cpu) and cpu_alloc > 0:
+	pass
+else:
+	print("Error! Entered invalid No of CPU's!")
+	exit()
+	
+print("-------------------------------------------")
+print(f"Starting to Download and Compile QE {qe_version}")
+print("-------------------------------------------\n")
+
+# Updating the System
+print("Updating the System!\n")
+os.system('sudo apt update')
+print("")
+
+# Installing Git
+print("Installing git!\n")
+os.system('sudo apt install git -y')
+print("")
+
+# Installing Base Dependencies
+print("Installing Dependencies!\n")
+os.system('sudo apt install --no-install-recommends autoconf build-essential ca-certificates gfortran libblas3 libc6 libfftw3-dev libgcc-s1 liblapack-dev -y')
+print("")
+
+# Installing Dependencies for Parallel Processing
+print("Installing Dependencies for Parallel Processing!\n")
+dep_cmd = f"sudo apt install --no-install-recommends libopenmpi-dev libscalapack-openmpi-dev {libelpa_version} -y"
+os.system(dep_cmd)
+print("")
+
+# Download QE Src
+print("Downloading Quantum Espresso Source!\n")
+download_cmd = f"wget https://gitlab.com/QEF/q-e/-/archive/qe-{qe_version}/q-e-qe-{qe_version}.tar.gz -P ~/Downloads"
+os.system(download_cmd)
+print("")
+
+# Extract and Move the Src
+print("Extracting and Moving the Src!\n")
+extract_cmd = f"tar -zxvf ~/Downloads/q-e-qe-{qe_version}.tar.gz -C ~/.local/src/QE/"
+os.system(extract_cmd)
+move_cmd = f"mv ~/.local/src/QE/q-e-qe-{qe_version} ~/.local/src/QE/{qe_version}"
+os.system(move_cmd)
+print("")
+
+# Configuring build
+print("Configuring Build!\n")
+config_cmd = f"$HOME/.local/src/QE/{qe_version}/./configure"
+os.system(config_cmd)
+print("")
+
+# Building
+print(f"Building QE {qe_version}!\n")
+build_cmd = f"make -j{cpu_alloc} all -C $HOME/.local/src/QE/{qe_version}/"
+os.system(build_cmd)
+print("")
+
+# Message
+print("---------------------------------")
+print(f"Downloaded and Compiled QE {qe_version}")
+print(f"The compiled binaries are located in ~/.local/src/QE/{qe_version}/bin/")
+print("Make sure to add it to your path or Use my other scripts to Source the Specific QE Version Only When you want to Use it!")
+print("you can find my other Scripts at https://github.com/chithresh-phy")
+print("---------------------------------")

@@ -4,11 +4,11 @@
 
 > [!IMPORTANT]  
 > This script works only for
->         - Ubuntu 24.04 LTS
->         - Debian 12
->         - Ubuntu 22.04 LTS
->         - Ubuntu 20.04 LTS
->         and distros which is based on it!
+>>         - Ubuntu 24.04 LTS
+>>         - Debian 12
+>>         - Ubuntu 22.04 LTS
+>>         - Ubuntu 20.04 LTS
+>>         and distros which is based on it!
 
 > [!NOTE]
 > In order to check your Distro/Version (like Ubuntu 22.04 LTS)

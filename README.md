@@ -1,8 +1,9 @@
-## Scripts to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source
+## Script to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source
 
 **This Script can install Quantum Espresso versions: 7.3.1 (Latest), 7.2!**
 
 ##### Installing and Running
+open your Terminal and run:
 ```bash
 sudo apt install wget
 wget https://raw.githubusercontent.com/chithresh-phy/qe-install-script/main/qe-install -P ~/Downloads
@@ -13,7 +14,7 @@ chmod +x qe-install
 
 > [!NOTE]
 > In order to check your Distro/Version (like Ubuntu 22.04 LTS)
-> open your Terminal and type:
+> open your Terminal and run:
 > ```bash
 > cat /etc/os-release
 > ```
@@ -24,4 +25,4 @@ chmod +x qe-install
 >>         - Debian 12
 >>         - Ubuntu 22.04 LTS
 >>         - Ubuntu 20.04 LTS
->>         and distros which is based on it!
+>>         and distros which are based on it!

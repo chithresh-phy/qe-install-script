@@ -13,11 +13,7 @@ chmod +x qe-install
 ```
 
 > [!NOTE]
-> In order to check your Distro/Version (like Ubuntu 22.04 LTS)
-> open your Terminal and run:
-> ```bash
-> cat /etc/os-release
-> ```
+> **You need to be connected to the Internet while running this script because some dependencies are pulled from github during compilation!**
 
 > [!IMPORTANT]  
 > This script works only for
@@ -26,3 +22,8 @@ chmod +x qe-install
 >>         - Ubuntu 22.04 LTS
 >>         - Ubuntu 20.04 LTS
 >>         and distros which are based on it!
+> In order to check your Distro/Version (like Ubuntu 22.04 LTS)
+> open your Terminal and run:
+> ```bash
+> cat /etc/os-release
+> ```

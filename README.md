@@ -1,10 +1,18 @@
-## Scripts to compile and install (possibly) the latest version of QuantumEspresso for parallel computing from source
+## Scripts to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source
 
-The version of QuantumEspresso which this script installs is 7.3.1!
+**This Script can install Quantum Espresso versions: 7.3.1 (Latest), 7.2!**
 
 > [!IMPORTANT]  
-> This script works only for Ubuntu 24.04 LTS and distros which is based on it!
+> This script works only for
+>         - Ubuntu 24.04 LTS
+>         - Debian 12
+>         - Ubuntu 22.04 LTS
+>         - Ubuntu 20.04 LTS
+>         and distros which is based on it!
 
-> [!NOTE]  
-> If you want this script to work in Ubuntu 22.04 LTS or distros which is based on it, you must replace the dependency (libelpa19) with (libelpa17) in the install script.
-> Similarly if you want this script to work in Ubuntu 20.04 LTS or distros which is based on it, you must replace the dependency (libelpa19) with (libelpa4) in the install script
+> [!NOTE]
+> In order to check your Distro/Version (like Ubuntu 22.04 LTS)
+> open your Terminal and type:
+> ```bash
+> cat /etc/os-release
+> ```

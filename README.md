@@ -16,7 +16,7 @@ chmod +x qe-install
 > **You need to be connected to the Internet while running this script because some dependencies are pulled from github during compilation!**
 
 > [!IMPORTANT]  
-> This script works only for
+> This script will work only on
 >>         - Ubuntu 24.04 LTS
 >>         - Debian 12
 >>         - Ubuntu 22.04 LTS

@@ -13,7 +13,7 @@ chmod +x qe-install
 ```
 
 > [!NOTE]
-> **You need to be connected to the Internet while running this script because some dependencies are pulled from github during compilation!**
+> **You need to be connected to the Internet while running this script because some dependencies required for compiling will pulled from github!**
 
 > [!IMPORTANT]  
 > This script will work only on

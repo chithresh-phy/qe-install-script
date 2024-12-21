@@ -2,7 +2,7 @@
 
 import os
 
-qe_versions = ['7.3.1', '7.2']
+qe_versions = ['7.4', '7.3.1', '7.2']
 
 print("This Script Works Only with a Few Linux Distros:\n")
 print("1. Ubuntu 24.04 LTS (Recommended) and Distros based on it")
@@ -29,7 +29,7 @@ print("Available QE Versions:")
 print(qe_versions)
 print("")
 
-qe_version = input("Enter any Available QE version to Compile and Install (Eg. 7.3.1): ")
+qe_version = input("Enter any Available QE version to Compile and Install (Eg. 7.4): ")
 print("")
 
 if qe_version in qe_versions:
@@ -40,15 +40,15 @@ else:
 
 # Checking/Creating QE src Dir
 print("Checking & Creating QE src Directory!\n")
-os.system('mkdir -p ~/.local/src/QE/')
+os.system('mkdir -p ~/src/QE/')
 
 # Check if the Verison already exists
-pr_vr_cmd = f"ls ~/.local/src/QE/ | grep {qe_version}"
+pr_vr_cmd = f"ls ~/src/QE/ | grep {qe_version}"
 pr_vr = os.popen(pr_vr_cmd).read()
 pr_vr = pr_vr.strip()
 
 if pr_vr == qe_version:
-	print(f"Manual Intervention Needed! {qe_version} version of QE Already exists in ~/.local/src/QE/")
+	print(f"Manual Intervention Needed! {qe_version} version of QE Already exists in ~/src/QE/")
 	exit()
 else:
 	pass
@@ -98,28 +98,28 @@ print("")
 
 # Extract and Move the Src
 print("Extracting and Moving the Src!\n")
-extract_cmd = f"tar -zxvf ~/Downloads/q-e-qe-{qe_version}.tar.gz -C ~/.local/src/QE/"
+extract_cmd = f"tar -zxvf ~/Downloads/q-e-qe-{qe_version}.tar.gz -C ~/src/QE/"
 os.system(extract_cmd)
-move_cmd = f"mv ~/.local/src/QE/q-e-qe-{qe_version} ~/.local/src/QE/{qe_version}"
+move_cmd = f"mv ~/src/QE/q-e-qe-{qe_version} ~/src/QE/{qe_version}"
 os.system(move_cmd)
 print("")
 
 # Configuring build
 print("Configuring Build!\n")
-config_cmd = f"$HOME/.local/src/QE/{qe_version}/./configure"
+config_cmd = f"$HOME/src/QE/{qe_version}/./configure"
 os.system(config_cmd)
 print("")
 
 # Building
 print(f"Building QE {qe_version}!\n")
-build_cmd = f"make -j{cpu_alloc} all -C $HOME/.local/src/QE/{qe_version}/"
+build_cmd = f"make -j{cpu_alloc} all -C $HOME/src/QE/{qe_version}/"
 os.system(build_cmd)
 print("")
 
 # Message
 print("---------------------------------")
 print(f"Downloaded and Compiled QE {qe_version}")
-print(f"The compiled binaries are located in ~/.local/src/QE/{qe_version}/bin/")
+print(f"The compiled binaries are located in ~/src/QE/{qe_version}/bin/")
 print("Make sure to add it to your path or Use my other scripts to Source the Specific QE Version Only When you want to Use it!")
 print("you can find my other Scripts at https://github.com/chithresh-phy")
 print("---------------------------------")

@@ -1,6 +1,6 @@
 ## Script to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source
 
-##### **This Script can install Quantum Espresso versions: 7.3.1 (Latest), 7.2!**
+##### **This Script can install Quantum Espresso versions: 7.4 (Latest), 7.3.1, 7.2!**
 
 ### Installing and Running
 open your Terminal and run:

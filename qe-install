@@ -2,7 +2,7 @@
 
 import os
 
-qe_versions = ['7.4', '7.3.1', '7.2']
+qe_versions = ['7.4.1', '7.4', '7.3.1', '7.2']
 
 print("This Script Works Only with a Few Linux Distros:\n")
 print("1. Ubuntu 24.04 LTS (Recommended) and Distros based on it")
@@ -29,7 +29,7 @@ print("Available QE Versions:")
 print(qe_versions)
 print("")
 
-qe_version = input("Enter any Available QE version to Compile and Install (Eg. 7.4): ")
+qe_version = input("Enter any Available QE version to Compile and Install (Eg. 7.4.1): ")
 print("")
 
 if qe_version in qe_versions:

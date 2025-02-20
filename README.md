@@ -1,4 +1,4 @@
-## Script to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source
+## Script to compile and install Multiple Versions of QuantumEspresso (including the latest version) for parallel computing from source using gfortran
 
 > This Script is loosely based on this guide --> "https://pranabdas.github.io/espresso/setup/install"
 
@@ -10,7 +10,7 @@ open your Terminal and run:
 ```bash
 sudo apt install wget
 wget https://raw.githubusercontent.com/chithresh-phy/qe-install-script/main/qe-install -P ~/Downloads
-cd Downloads
+cd ~/Downloads
 chmod +x qe-install
 ./qe-install
 ```

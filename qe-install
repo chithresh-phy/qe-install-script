@@ -2,7 +2,7 @@
 
 import os
 
-qe_versions = ['7.4.1', '7.4', '7.3.1', '7.2']
+qe_versions = ['7.5', '7.4.1', '7.4', '7.3.1', '7.2']
 
 print("This Script Works Only with a Few Linux Distros:\n")
 print("1. Ubuntu 24.04 LTS (Recommended) and Distros based on it")

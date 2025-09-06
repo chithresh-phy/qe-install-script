@@ -2,7 +2,7 @@
 
 > This Script is loosely based on this guide --> "https://pranabdas.github.io/espresso/setup/install"
 
-##### **This Script can install Quantum Espresso versions: 7.4.1 (Latest), 7.4, 7.3.1, 7.2!**
+##### **This Script can install Quantum Espresso versions: 7.5 (Latest), 7.4.1, 7.4, 7.3.1, 7.2!**
 ##### _**This Script was Tested and is Known to Work in Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, Debian 12 and WSL (Ubuntu 22.04 LTS)**_
 
 ### Installing and Running
